@@ -7,4 +7,5 @@ public class Task
     public DateTime Date { get; set; }
     public int WorkHours { get; set; }
     public bool Invoiced { get; set; } = false;
+    public Employee? Employee { get; set; }
 }
