@@ -1,7 +1,17 @@
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnectionString");
+
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddTransient<CustomersService>();
+builder.Services.AddSwaggerGen();
+
+
+//builder.Services.AddSingleton<SQLDataAccess>(new SQLDataAccess(connectionString));
 
 var app = builder.Build();
 
@@ -21,5 +31,19 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapControllers();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.RoutePrefix = "";
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    }
+    );
+}
+
+AppDbInitializer.Seed(app);
 
 app.Run();

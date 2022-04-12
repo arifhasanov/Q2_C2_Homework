@@ -1,4 +1,4 @@
-﻿namespace Homework.Models;
+﻿namespace Homework.Data.Models;
 
 public class Customer
 {

@@ -1,4 +1,4 @@
-﻿namespace Homework.Models;
+﻿namespace Homework.Data.Models;
 public class Contract
 {
     public int Id { get; set; }

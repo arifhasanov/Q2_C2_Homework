@@ -1,6 +1,6 @@
-﻿namespace Homework.Models;
+﻿namespace Homework.Data.Models;
 
-public class Task
+public class JobTask
 {
     public int Id { get; set; }
     public Contract? Contract { get; set; }
