@@ -1,6 +1,6 @@
 ﻿namespace Homework.Data.Services;
 
-public class CustomersService : IService<Customer>
+public class CustomersService : IService<Customer, CustomerVM>
 {
     private AppDbContext _context;
 
@@ -9,7 +9,7 @@ public class CustomersService : IService<Customer>
         _context = context;
     }
 
-    public async Task Create(Customer customer)
+    public async Task<List<Customer>> Create(CustomerVM customer)
     {
         var _customer = new Customer()
         {
@@ -17,6 +17,7 @@ public class CustomersService : IService<Customer>
         };
         await _context.Customers.AddAsync(_customer);
         await _context.SaveChangesAsync();
+        return await _context.Customers.ToListAsync();
     }
 
     public async Task<IList<Customer>> GetAll()

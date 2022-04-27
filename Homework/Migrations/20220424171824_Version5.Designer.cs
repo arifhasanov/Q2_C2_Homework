@@ -4,6 +4,7 @@ using Homework.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Homework.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220424171824_Version5")]
+    partial class Version5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -152,7 +154,7 @@ namespace Homework.Migrations
             modelBuilder.Entity("Homework.Data.Models.Contract", b =>
                 {
                     b.HasOne("Homework.Data.Models.Customer", "Customer")
-                        .WithMany("Contracts")
+                        .WithMany()
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -177,11 +179,6 @@ namespace Homework.Migrations
                     b.Navigation("Contract");
 
                     b.Navigation("Employee");
-                });
-
-            modelBuilder.Entity("Homework.Data.Models.Customer", b =>
-                {
-                    b.Navigation("Contracts");
                 });
 
             modelBuilder.Entity("Homework.Data.Models.Invoice", b =>

@@ -8,6 +8,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddTransient<CustomersService>();
+builder.Services.AddTransient<ContractsService>();
 builder.Services.AddSwaggerGen();
 
 

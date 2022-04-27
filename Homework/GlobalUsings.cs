@@ -12,3 +12,4 @@ global using Homework.DbAccess;
 global using Homework.Data;
 global using Homework.Data.ViewModels;
 global using Homework.Data.Services;
+global using System.Text.Json.Serialization;

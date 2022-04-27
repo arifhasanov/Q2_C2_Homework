@@ -1,8 +1,8 @@
 ﻿namespace Homework.Data.Services;
 
-public interface IService<T>
+public interface IService<T, T2>
 {
-    Task Create(T item);
+    Task<List<T>> Create(T2 item);
     Task<T> Update(int id, T item);
     Task Delete(int id);
     Task<T> Get(int id);
