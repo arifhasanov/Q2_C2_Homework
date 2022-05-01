@@ -12,4 +12,6 @@ public class AppDbContext : DbContext
     public DbSet<Employee>? Employees { get; set; }
     public DbSet<Invoice>? Invoices { get; set; }
     public DbSet<JobTask>? JobTasks { get; set; }
+    public DbSet<User>? Users { get; set; }
+
 }

@@ -1,6 +1,7 @@
 ﻿namespace Homework.Controllers;
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class ContractsController : ControllerBase
 {
     public ContractsService _contractsService;
@@ -31,7 +32,7 @@ public class ContractsController : ControllerBase
     }
 
     [HttpPut("UpdateContract/{Id}")]
-    public async Task<IActionResult> UpdateContractById(int Id, [FromBody] Contract contract)
+    public async Task<IActionResult> UpdateContractById(int Id, [FromBody] ContractVM contract)
     {
         return Ok(await _contractsService.Update(Id, contract));
     }

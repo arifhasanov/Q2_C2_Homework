@@ -1,8 +1,7 @@
-﻿namespace Homework.Data.Models;
+﻿namespace Homework.Data.ViewModels;
 
-public class Invoice
+public class InvoiceVM
 {
-    public int Id { get; set; } 
     public DateTime DateFrom { get; set; }
     public DateTime DateTo { get; set; }
     public DateTime InvoiceDate { get; set; }

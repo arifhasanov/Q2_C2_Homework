@@ -30,7 +30,7 @@ public class CustomersService : IService<Customer, CustomerVM>
         return await _context.Customers.FirstOrDefaultAsync(x => x.Id == Id);
     }
 
-    public async Task<Customer> Update(int Id, Customer customer)
+    public async Task<Customer> Update(int Id, CustomerVM customer)
     {
         var _customer = await _context.Customers.FirstOrDefaultAsync(x => x.Id == Id);
         if (_customer != null)
