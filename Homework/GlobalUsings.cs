@@ -1,0 +1,15 @@
+﻿global using Homework.Data.Models;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.Mvc.RazorPages;
+global using System.Text.RegularExpressions;
+global using System.Text;
+global using Microsoft.AspNetCore.Http;
+global using Swashbuckle.AspNetCore.Swagger;
+global using Swashbuckle.AspNetCore.SwaggerGen;
+global using Swashbuckle.AspNetCore.SwaggerUI;
+global using Microsoft.EntityFrameworkCore;
+global using Homework.DbAccess;
+global using Homework.Data;
+global using Homework.Data.ViewModels;
+global using Homework.Data.Services;
+global using System.Text.Json.Serialization;
