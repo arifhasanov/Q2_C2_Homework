@@ -36,13 +36,13 @@ public class ContractsService : IService<Contract, ContractVM>
         return await _context.Contracts.FirstOrDefaultAsync(x => x.Id == Id);
     }
 
-    public async Task<Contract> Update(int Id, Contract contract)
+    public async Task<Contract> Update(int Id, ContractVM contract)
     {
         var _contract = await _context.Contracts.FirstOrDefaultAsync(x => x.Id == Id);
         if (_contract != null)
         {
             _contract.Description = contract.Description;
-            _contract.Customer = contract.Customer;
+            _contract.CustomerId = contract.CustomerId;
             _contract.StartDate = contract.StartDate;
             _contract.EndDate = contract.EndDate;
             _contract.PricePerHour = contract.PricePerHour;
@@ -53,10 +53,10 @@ public class ContractsService : IService<Contract, ContractVM>
 
     public async Task Delete(int Id)
     {
-        var _contract = await _context.Contracts.FirstOrDefaultAsync(x => x.Id == Id);
+        var _contract = await _context.Users.FirstOrDefaultAsync(x => x.Id == Id);
         if (_contract != null)
         {
-            _context.Contracts.Remove(_contract);
+            _context.Users.Remove(_contract);
             _context.SaveChangesAsync();
         }
     }

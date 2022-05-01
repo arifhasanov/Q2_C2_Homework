@@ -2,6 +2,7 @@
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class CustomersController : ControllerBase
 {
     public CustomersService _customersService;
@@ -31,7 +32,7 @@ public class CustomersController : ControllerBase
     }
 
     [HttpPut("UpdateCustomer/{Id}")]
-    public async Task<IActionResult> UpdateCustomerById(int Id, [FromBody] Customer customer)
+    public async Task<IActionResult> UpdateCustomerById(int Id, [FromBody] CustomerVM customer)
     {
         return Ok(await _customersService.Update(Id, customer));
     }

@@ -1,20 +1,12 @@
-﻿namespace Homework.Data.Models;
+﻿namespace Homework.Data.ViewModels;
 
-public class JobTask
+public class JobTaskVM
 {
-    public int Id { get; set; }
     public DateTime Date { get; set; }
     public int WorkHours { get; set; }
-    
+
     //Navigation properties
-    public Employee? Employee { get; set; }
     public int EmployeeId { get; set; }
-
-    public Contract? Contract { get; set; }
     public int ContractId { get; set; }
-
-    public Invoice? Invoice { get; set; }
-
     public int? InvoiceId { get; set; } = null;
-
 }
